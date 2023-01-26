@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Development' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Production' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.26.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
+    <PackageReference Include="Azure.Security.KeyVault.Secrets" Version="4.4.0" />
+    <PackageReference Include="Azure.Identity" Version="1.8.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="MySql.EntityFrameworkCore" />
+    <None Remove="Context\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Controllers\Administrator\" />
+    <None Remove="Controllers\Administrator\Dto\" />
+    <None Remove="UseCase\" />
+    <None Remove="UseCase\Administrator\Login\" />
+    <None Remove="UseCase\Interfaces\" />
+    <None Remove="Domain\" />
+    <None Remove="External\" />
+    <None Remove="External\Services\" />
+    <None Remove="Microsoft.IdentityModel.Tokens" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Configuration\" />
+    <None Remove="Azure.Security.KeyVault.Secrets" />
+    <None Remove="Azure.Identity" />
+    <None Remove="Domain\Model\" />
+    <None Remove="External\Repositories\" />
+    <None Remove="Helper\" />
+    <None Remove="UseCase\Interfaces\Repositories\" />
+    <None Remove="Domain\Exceptions\" />
+    <None Remove="Domain\Exceptions\Administrator\" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Controllers\Partners\" />
+    <None Remove="Controllers\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Controllers\Administrator\" />
+    <Folder Include="Controllers\Administrator\Dto\" />
+    <Folder Include="UseCase\" />
+    <Folder Include="UseCase\AdministratorLogin\Login\" />
+    <Folder Include="UseCase\Interfaces\" />
+    <Folder Include="Domain\" />
+    <Folder Include="External\" />
+    <Folder Include="External\Services\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="External\Repositories\" />
+    <Folder Include="Helper\" />
+    <Folder Include="UseCase\Interfaces\Repositories\" />
+    <Folder Include="Domain\Exceptions\" />
+    <Folder Include="Domain\Exceptions\Administrator\" />
+    <Folder Include="Controllers\Partners\" />
+    <Folder Include="Controllers\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
+</Project>

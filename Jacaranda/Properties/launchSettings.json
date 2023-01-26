@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:64627",
+      "sslPort": 44390
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Development": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:54821/swagger/index.html",
+      "applicationUrl": "https://localhost:54821;http://localhost:61251",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VAULT_URL": "https://webforestkeyvaultdev.vault.azure.net/"
+      }
+    },
+    "Production": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:64719/swagger/index.html",
+      "applicationUrl": "https://localhost:64719;http://localhost:3164",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "VAULT_URL": "https://webforestkeyvaultprd.vault.azure.net/"
+      }
+    }
+  }
+}
