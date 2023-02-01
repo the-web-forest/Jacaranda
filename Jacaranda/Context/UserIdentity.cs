@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.Context
 {
-    public class UserEntity
+    public class CityEntity
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
@@ -28,11 +28,12 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.City)
-                    .HasMaxLength(255);
+                entity.Property(e => e.CityId)
+                    .IsRequired();
 
-                entity.Property(e => e.State)
-                    .HasMaxLength(255);
+                entity.HasOne<City>(e => e.City)
+                    .WithMany(e => e.Users)
+                    .HasForeignKey(e => e.CityId);
 
                 entity.Property(e => e.EmailVerified)
                     .IsRequired()

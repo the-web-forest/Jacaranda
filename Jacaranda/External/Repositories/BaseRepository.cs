@@ -1,7 +1,7 @@
 ﻿using System;
 using Jacaranda.Context;
 using Jacaranda.Helper;
-using Jacaranda.Model;
+using Jacaranda.Domain.Model;
 using Jacaranda.UseCase.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
 

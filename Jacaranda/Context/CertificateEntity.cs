@@ -1,14 +1,14 @@
 ﻿using System;
-using Jacaranda.Model;
+using Jacaranda.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.Context
 {
-	public class AdministratorEntity
+    public class CertificateEntity
     {
         public static void Configure(ModelBuilder modelBuilder)
-		{
-            modelBuilder.Entity<Administrator>(entity =>
+        {
+            modelBuilder.Entity<Certificate>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
@@ -17,13 +17,13 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Email)
+                entity.Property(e => e.File)
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Password)
+                entity.Property(e => e.CertificateId)
                     .IsRequired()
-                    .HasMaxLength(255);
+                    .HasMaxLength(13);
 
                 entity.Property(e => e.CreatedAt)
                     .IsRequired();
@@ -35,6 +35,6 @@ namespace Jacaranda.Context
                     .IsRequired().HasDefaultValue(false);
             });
         }
-	}
+    }
 }
 

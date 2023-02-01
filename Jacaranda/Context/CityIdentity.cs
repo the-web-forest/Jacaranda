@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.Context
 {
-    public class AdministratorEntity
+    public class UserEntity
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Administrator>(entity =>
+            modelBuilder.Entity<City>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
@@ -17,13 +17,14 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                entity.Property(e => e.StateId)
+                    .IsRequired();
 
-                entity.Property(e => e.Password)
-                    .IsRequired()
-                    .HasMaxLength(255);
+                entity.HasOne<State>(e => e.State)
+                   .WithMany(x => x.Cities)
+                   .HasForeignKey(x => x.StateId);
+
+                entity.HasMany<User>(e => e.Users);
 
                 entity.Property(e => e.CreatedAt)
                     .IsRequired();

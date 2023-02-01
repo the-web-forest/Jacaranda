@@ -4,16 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.Context
 {
-    public class AdministratorEntity
+    public class MailVerificationEntity
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Administrator>(entity =>
+            modelBuilder.Entity<MailVerification>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Name)
+                entity.Property(e => e.Role)
                     .IsRequired()
                     .HasMaxLength(255);
 
@@ -21,9 +21,12 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Password)
+                entity.Property(e => e.Token)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.Property(e => e.ActivatedAt)
+                   .HasDefaultValue(null);
 
                 entity.Property(e => e.CreatedAt)
                     .IsRequired();
@@ -32,7 +35,8 @@ namespace Jacaranda.Context
                     .IsRequired();
 
                 entity.Property(e => e.Deleted)
-                    .IsRequired().HasDefaultValue(false);
+                    .IsRequired()
+                    .HasDefaultValue(false);
             });
         }
     }

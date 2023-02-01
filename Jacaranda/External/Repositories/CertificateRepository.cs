@@ -7,15 +7,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.External.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class CertificateRepository : BaseRepository<Certificate>, ICertificateRepository
     {
-        public UserRepository(DatabaseContext databaseContext) : base(databaseContext)
+        public CertificateRepository(DatabaseContext databaseContext) : base(databaseContext)
         {
         }
 
-        public async Task<User> GetByEmail(string Email)
+        public async Task<Certificate> GetByCertificateId(string CertificateId)
         {
-            return await _context.Where(x => x.Email == Email).FirstOrDefaultAsync();
+            return await _context.Where(x => x.CertificateId == CertificateId).FirstOrDefaultAsync();
         }
     }
 }

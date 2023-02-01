@@ -9,6 +9,8 @@ namespace Jacaranda.Configuration
         public static void Configure(WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IAdministratorRepository, AdministratorRepository>();
+
+            builder.Services.AddScoped<ICertificateRepository, CertificateRepository>();
         }
     }
 }

@@ -4,24 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Jacaranda.Context
 {
-    public class AdministratorEntity
+    public class BiomeEntity
     {
         public static void Configure(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Administrator>(entity =>
+            modelBuilder.Entity<Biome>(entity =>
             {
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(255);
 

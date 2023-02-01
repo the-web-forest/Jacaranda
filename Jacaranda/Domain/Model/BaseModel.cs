@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Jacaranda.Model
+namespace Jacaranda.Domain.Model
 {
 	public abstract class BaseModel
 	{

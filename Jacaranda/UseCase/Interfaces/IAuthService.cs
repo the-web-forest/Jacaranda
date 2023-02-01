@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using Jacaranda.Domain;
-using Jacaranda.Model;
+using Jacaranda.Domain.Model;
 
 namespace Jacaranda.UseCase.Interfaces
 {

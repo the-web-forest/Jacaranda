@@ -1,11 +1,11 @@
 ﻿using System;
-using Jacaranda.Model;
+using Models = Jacaranda.Domain.Model;
 
 namespace Jacaranda.UseCase.Interfaces.Repositories
 {
-	public interface IAdministratorRepository: IBaseRepository<Administrator>
-	{
-        Task<Administrator> GetByEmail(string Email);
+    public interface IUserRepository : IBaseRepository<Models.User>
+    {
+        Task<Models.User> GetByEmail(string Email);
     }
 }
 

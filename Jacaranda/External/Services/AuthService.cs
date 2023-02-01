@@ -1,5 +1,5 @@
 ﻿using Jacaranda.Domain;
-using Jacaranda.Model;
+using Jacaranda.Domain.Model;
 using Jacaranda.UseCase.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

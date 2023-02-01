@@ -25,6 +25,12 @@
     <PackageReference Include="Azure.Identity" Version="1.8.1" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="EFCore.NamingConventions" Version="7.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +60,15 @@
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Controllers\Partners\" />
     <None Remove="Controllers\User\" />
+    <None Remove="Microsoft.AspNetCore.Http.Abstractions" />
+    <None Remove="UseCase\User\" />
+    <None Remove="UseCase\User\Register\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Controllers\Certificate\" />
+    <None Remove="UseCase\Certificate\" />
+    <None Remove="UseCase\Certificate\GetCertificateByIdUseCase\" />
+    <None Remove="Domain\Exceptions\Certificate\" />
+    <None Remove="EFCore.NamingConventions" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
@@ -74,6 +89,12 @@
     <Folder Include="Domain\Exceptions\Administrator\" />
     <Folder Include="Controllers\Partners\" />
     <Folder Include="Controllers\User\" />
+    <Folder Include="UseCase\User\" />
+    <Folder Include="UseCase\User\Register\" />
+    <Folder Include="Controllers\Certificate\" />
+    <Folder Include="UseCase\Certificate\" />
+    <Folder Include="UseCase\Certificate\GetCertificateByIdUseCase\" />
+    <Folder Include="Domain\Exceptions\Certificate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />

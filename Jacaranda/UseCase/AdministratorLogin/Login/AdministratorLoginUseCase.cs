@@ -2,7 +2,7 @@
 using Jacaranda.Domain;
 using Jacaranda.Domain.Exceptions.Administrator;
 using Jacaranda.External.Repositories;
-using Jacaranda.Model;
+using Jacaranda.Domain.Model;
 using Jacaranda.UseCase.Interfaces;
 using Jacaranda.UseCase.Interfaces.Repositories;
 using BCryptLib = BCrypt.Net.BCrypt;
@@ -10,8 +10,8 @@ using BCryptLib = BCrypt.Net.BCrypt;
 
 namespace Jacaranda.UseCase.AdministratorLogin
 {
-	public class AdministratorLoginUseCase: IUseCase<AdministratorLoginUseCaseInput, AdministratorLoginUseCaseOutput>
-	{
+    public class AdministratorLoginUseCase : IUseCase<AdministratorLoginUseCaseInput, AdministratorLoginUseCaseOutput>
+    {
         private readonly IAdministratorRepository _administratorRepository;
         private readonly IAuthService _authService;
 

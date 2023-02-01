@@ -3,9 +3,9 @@ using Models = Jacaranda.Domain.Model;
 
 namespace Jacaranda.UseCase.Interfaces.Repositories
 {
-	public interface IUserRepository: IBaseRepository<Models.User>
-	{
-        Task<Models.User> GetByEmail(string Email);
+    public interface ICertificateRepository : IBaseRepository<Models.Certificate>
+    {
+        Task<Models.Certificate> GetByCertificateId(string CertificateId);
     }
 }
 
