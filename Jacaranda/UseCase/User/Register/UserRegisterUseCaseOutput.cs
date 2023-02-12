@@ -1,5 +1,4 @@
-﻿using System;
-namespace Jacaranda.UseCase.User.Register
+﻿namespace Jacaranda.UseCase.User.Register
 {
 	public class UserRegisterUseCaseOutput
 	{

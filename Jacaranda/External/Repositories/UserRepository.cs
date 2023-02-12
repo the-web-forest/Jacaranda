@@ -17,6 +17,26 @@ namespace Jacaranda.External.Repositories
         {
             return await _context.Where(x => x.Email == Email).FirstOrDefaultAsync();
         }
+
+        public async Task<long> CountUsers()
+        {
+            var Query = _context.Where(x => x.Name != null);
+            var TotalTask = await Query.CountAsync();
+            return TotalTask;
+        }
+
+        public async Task<User> GetById(int UserId)
+        {
+            return await _context.Where(x => x.Id == UserId).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<User>> ListUsersPerPage(int Page, int ItensPerPage)
+        {
+            var SkipQuantity = (Page == 1) ? 0 : ((Page - 1) * ItensPerPage);
+            var Query = _context.Where(x => x.Name != null);
+            var Results = await Query.Skip(SkipQuantity).Take(ItensPerPage).ToListAsync();
+            return Results;
+        }
     }
 }
 

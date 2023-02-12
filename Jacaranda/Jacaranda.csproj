@@ -74,10 +74,8 @@
     <Folder Include="Context\" />
     <Folder Include="Controllers\Administrator\" />
     <Folder Include="Controllers\Administrator\Dto\" />
-    <Folder Include="UseCase\" />
     <Folder Include="UseCase\AdministratorLogin\Login\" />
     <Folder Include="UseCase\Interfaces\" />
-    <Folder Include="Domain\" />
     <Folder Include="External\" />
     <Folder Include="External\Services\" />
     <Folder Include="Configuration\" />
@@ -85,11 +83,9 @@
     <Folder Include="External\Repositories\" />
     <Folder Include="Helper\" />
     <Folder Include="UseCase\Interfaces\Repositories\" />
-    <Folder Include="Domain\Exceptions\" />
     <Folder Include="Domain\Exceptions\Administrator\" />
     <Folder Include="Controllers\Partners\" />
     <Folder Include="Controllers\User\" />
-    <Folder Include="UseCase\User\" />
     <Folder Include="UseCase\User\Register\" />
     <Folder Include="Controllers\Certificate\" />
     <Folder Include="UseCase\Certificate\" />
