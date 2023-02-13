@@ -1,4 +1,5 @@
 ﻿using Jacaranda.Configuration;
+using Jacaranda.Configuration.AutoMapper;
 using Jacaranda.Context;
 using Jacaranda.External.Repositories;
 using Jacaranda.External.Services;
@@ -15,6 +16,7 @@ Repositories.Configure(builder);
 Services.Configure(builder);
 UseCases.Configure(builder);
 Databases.Configure(builder);
+AutoMapperConfig.Configure(builder);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

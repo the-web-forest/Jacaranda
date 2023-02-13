@@ -12,6 +12,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Development' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Production' " />
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.0" />
@@ -75,14 +76,10 @@
     <Folder Include="Controllers\Administrator\" />
     <Folder Include="Controllers\Administrator\Dto\" />
     <Folder Include="UseCase\AdministratorLogin\Login\" />
-    <Folder Include="UseCase\Interfaces\" />
     <Folder Include="External\" />
     <Folder Include="External\Services\" />
-    <Folder Include="Configuration\" />
-    <Folder Include="Domain\Model\" />
     <Folder Include="External\Repositories\" />
     <Folder Include="Helper\" />
-    <Folder Include="UseCase\Interfaces\Repositories\" />
     <Folder Include="Domain\Exceptions\Administrator\" />
     <Folder Include="Controllers\Partners\" />
     <Folder Include="Controllers\User\" />
