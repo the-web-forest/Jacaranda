@@ -1,6 +1,5 @@
 ﻿using System;
 using Jacaranda.Context;
-using Jacaranda.Controllers;
 using Jacaranda.Controllers.Administrator.Dto;
 using Jacaranda.Domain.Exceptions;
 using Jacaranda.UseCase;

@@ -13,7 +13,7 @@ namespace Jacaranda.Controllers.Trees;
 
 [ApiController]
 [Route("Trees")]
-[Authorize]
+
 public class TreesController : ControllerBase
 {
     private readonly ILogger<TreesController> _logger;
@@ -41,6 +41,7 @@ public class TreesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ObjectResult> CreateTree([FromBody] CreateTreeInput Input)
     {
         _logger.LogInformation("Create Tree Called => {Name}", Input.Name);
@@ -68,6 +69,7 @@ public class TreesController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = "Admin")]
     public async Task<ObjectResult> UpdateTree([FromBody] UpdateTreeInput Input)
     {
         _logger.LogInformation("Update Tree Called => {Id}", Input.Id);
@@ -95,6 +97,7 @@ public class TreesController : ControllerBase
     }
 
     [HttpGet("List")]
+    [Authorize]
     public async Task<ObjectResult> GetTree([FromQuery] int Page)
     {
         _logger.LogInformation("Get Tree List, Page => {Page}", Page);
@@ -121,6 +124,7 @@ public class TreesController : ControllerBase
     }
 
     [HttpGet("{Id}")]
+    [Authorize]
     public async Task<ObjectResult> GetTreeById(int Id)
     {
         _logger.LogInformation("Get Tree By Id Called => {Id}", Id);
@@ -144,6 +148,7 @@ public class TreesController : ControllerBase
     }
 
     [HttpDelete("{Id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ObjectResult> DeleteTree(int Id)
     {
         _logger.LogInformation("Delete Tree Called => {Id}", Id);

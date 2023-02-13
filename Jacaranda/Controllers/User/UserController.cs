@@ -56,7 +56,7 @@ namespace Jacaranda.Controllers.User
 
         [HttpGet]
         [Route("List")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ObjectResult> List([FromQuery(Name = "Page")] int Page)
         {
 
@@ -85,7 +85,7 @@ namespace Jacaranda.Controllers.User
 
         [HttpGet]
         [Route("{UserId}")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<ObjectResult> UserDetails(int UserId)
         {
             try
