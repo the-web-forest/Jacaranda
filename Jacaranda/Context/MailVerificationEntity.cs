@@ -13,17 +13,13 @@ namespace Jacaranda.Context
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Role)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.Email)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
                 entity.Property(e => e.Token)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.HasOne<User>(e => e.User)
+                   .WithMany(x => x.MailVerifications)
+                   .HasForeignKey(x => x.UserId);
 
                 entity.Property(e => e.ActivatedAt)
                    .HasDefaultValue(null);

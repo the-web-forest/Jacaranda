@@ -15,6 +15,9 @@ using Jacaranda.UseCase.UpdatePartner;
 using Jacaranda.UseCase.UpdateTree;
 using Jacaranda.UseCase.User.Detail;
 using Jacaranda.UseCase.User;
+using Jacaranda.UseCase.User.Register;
+using Jacaranda.UseCase.Mail.ValidateEmail;
+using Jacaranda.UseCase.Mail.SendVerificationEmail;
 
 namespace Jacaranda.Configuration
 {
@@ -29,6 +32,7 @@ namespace Jacaranda.Configuration
             #region User
             builder.Services.AddScoped<IUseCase<ListUsersUseCaseInput, ListUsersUseCaseOutput>, ListUsersUseCase>();
             builder.Services.AddScoped<IUseCase<UserDetailUseCaseInput, UserDetailUseCaseOutput>, UserDetailUseCase>();
+            builder.Services.AddScoped<IUseCase<UserRegisterUseCaseInput, UserRegisterUseCaseOutput>, UserRegisterUseCase>();
             #endregion
 
             #region Tree
@@ -45,6 +49,11 @@ namespace Jacaranda.Configuration
             builder.Services.AddScoped<IUseCase<DeletePartnerUseCaseInput, DeletePartnerUseCaseOutput>, DeletePartnerUseCase>();
             builder.Services.AddScoped<IUseCase<GetPartnerByIdUseCaseInput, GetPartnerByIdUseCaseOutput>, GetPartnerByIdUseCase>();
             builder.Services.AddScoped<IUseCase<UpdatePartnerUseCaseInput, UpdatePartnerUseCaseOutput>, UpdatePartnerUseCase>();
+            #endregion
+
+            #region Email
+            builder.Services.AddScoped<IUseCase<ValidateEmailUseCaseInput, ValidateEmailUseCaseOutput>, ValidateEmailUseCase>();
+            builder.Services.AddScoped<IUseCase<SendVerificationEmailUseCaseInput, SendVerificationEmailUseCaseOutput>, SendVerificationEmailUseCase>();
             #endregion
         }
     }

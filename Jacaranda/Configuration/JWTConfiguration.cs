@@ -26,6 +26,8 @@ namespace Jacaranda.Configuration
                     ValidateIssuer = true,
                     ValidateAudience = true
                 };
+                x.Audience = "webforest.api";
+                x.TokenValidationParameters.ValidIssuer = "webforest";
             });
         }
     }

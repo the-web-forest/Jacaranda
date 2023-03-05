@@ -3,6 +3,7 @@ using System;
 using Jacaranda.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jacaranda.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230305215436_FixUserCityId")]
+    partial class FixUserCityId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -189,7 +192,7 @@ namespace Jacaranda.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<DateTime?>("ActivatedAt")
+                    b.Property<DateTime>("ActivatedAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("activated_at");
 
@@ -203,6 +206,18 @@ namespace Jacaranda.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("deleted");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("email");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("role");
+
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -213,15 +228,8 @@ namespace Jacaranda.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("updated_at");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("user_id");
-
                     b.HasKey("Id")
                         .HasName("pk_mail_verification");
-
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_mail_verification_user_id");
 
                     b.ToTable("mail_verification", (string)null);
                 });
@@ -719,18 +727,6 @@ namespace Jacaranda.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("Jacaranda.Domain.Model.MailVerification", b =>
-                {
-                    b.HasOne("Jacaranda.Domain.Model.User", "User")
-                        .WithMany("MailVerifications")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_mail_verification_user_user_id");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Jacaranda.Domain.Model.Order", b =>
                 {
                     b.HasOne("Jacaranda.Domain.Model.User", "User")
@@ -893,8 +889,6 @@ namespace Jacaranda.Migrations
 
             modelBuilder.Entity("Jacaranda.Domain.Model.User", b =>
                 {
-                    b.Navigation("MailVerifications");
-
                     b.Navigation("Orders");
 
                     b.Navigation("PasswordResets");

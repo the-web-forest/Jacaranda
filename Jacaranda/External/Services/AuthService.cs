@@ -32,6 +32,8 @@ namespace Jacaranda.External.Services
                     new Claim(ClaimTypes.Role, Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(12),
+                Audience = "webforest.api",
+                Issuer = "webforest",
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
