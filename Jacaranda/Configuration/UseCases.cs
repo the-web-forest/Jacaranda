@@ -22,6 +22,7 @@ using Jacaranda.UseCase.Mail.CheckEmailUseCase;
 using Jacaranda.UseCase.Mail.UserPasswordResetUseCase;
 using Jacaranda.UseCase.User.PasswordChange;
 using Jacaranda.UseCase.User.GetUserInfo;
+using Jacaranda.UseCase.User.Login;
 
 namespace Jacaranda.Configuration
 {
@@ -39,6 +40,7 @@ namespace Jacaranda.Configuration
             builder.Services.AddScoped<IUseCase<UserRegisterUseCaseInput, UserRegisterUseCaseOutput>, UserRegisterUseCase>();
             builder.Services.AddScoped<IUseCase<UserPasswordChangeUseCaseInput, UserPasswordChangeUseCaseOutput>, UserPasswordChangeUseCase>();
             builder.Services.AddScoped<IUseCase<GetUserInfoUseCaseInput, GetUserInfoUseCaseOutput>, GetUserInfoUseCase>();
+            builder.Services.AddScoped<IUseCase<UserLoginUseCaseInput, UserLoginUseCaseOutput>, UserLoginUseCase>();
             #endregion
 
             #region Tree
