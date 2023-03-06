@@ -10,14 +10,14 @@ namespace Jacaranda.Configuration
         public static void Configure(WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IAdministratorRepository, AdministratorRepository>();
-
             builder.Services.AddScoped<ICertificateRepository, CertificateRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IAdministratorRepository, AdministratorRepository>();
             builder.Services.AddScoped<ITreeRepository, TreeRepository>();
             builder.Services.AddScoped<IPartnerRepository, PartnerRepository>();
             builder.Services.AddScoped<IBiomeRepository, BiomeRepository>();
-
+            builder.Services.AddScoped<IMailVerificationRepository, MailVerificationRepository>();
+            builder.Services.AddScoped<IPasswordResetRepository, PasswordResetRepository>();
         }
     }
 }

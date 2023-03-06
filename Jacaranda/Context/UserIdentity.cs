@@ -28,9 +28,6 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.CityId)
-                    .IsRequired();
-
                 entity.HasOne<City>(e => e.City)
                     .WithMany(e => e.Users)
                     .HasForeignKey(e => e.CityId);

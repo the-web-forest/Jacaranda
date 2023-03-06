@@ -27,7 +27,7 @@ namespace Jacaranda.UseCase.AdministratorLogin
 
             ValidateAdministrator(Administrator);
 
-            var passwordIsValid = BCryptLib.Verify(Input.Password, Administrator.Password);
+            var passwordIsValid = BCryptLib.EnhancedVerify(Input.Password, Administrator.Password);
 
             if (passwordIsValid is false)
                 throw new InvalidPasswordException();

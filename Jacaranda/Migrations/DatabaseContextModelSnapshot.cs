@@ -189,7 +189,7 @@ namespace Jacaranda.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("ActivatedAt")
+                    b.Property<DateTime?>("ActivatedAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("activated_at");
 
@@ -203,18 +203,6 @@ namespace Jacaranda.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("deleted");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("email");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("role");
-
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -225,8 +213,15 @@ namespace Jacaranda.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("updated_at");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
                     b.HasKey("Id")
                         .HasName("pk_mail_verification");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("ix_mail_verification_user_id");
 
                     b.ToTable("mail_verification", (string)null);
                 });
@@ -277,6 +272,10 @@ namespace Jacaranda.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("id");
+
+                    b.Property<int>("Code")
+                        .HasColumnType("int")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)")
@@ -336,7 +335,7 @@ namespace Jacaranda.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("ActivatedAt")
+                    b.Property<DateTime?>("ActivatedAt")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("activated_at");
 
@@ -646,7 +645,7 @@ namespace Jacaranda.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("allow_newsletter");
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int")
                         .HasColumnName("city_id");
 
@@ -691,7 +690,6 @@ namespace Jacaranda.Migrations
                         .HasColumnName("password");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)")
                         .HasColumnName("photo");
@@ -719,6 +717,18 @@ namespace Jacaranda.Migrations
                         .HasConstraintName("fk_city_state_state_id");
 
                     b.Navigation("State");
+                });
+
+            modelBuilder.Entity("Jacaranda.Domain.Model.MailVerification", b =>
+                {
+                    b.HasOne("Jacaranda.Domain.Model.User", "User")
+                        .WithMany("MailVerifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_mail_verification_user_user_id");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Jacaranda.Domain.Model.Order", b =>
@@ -837,8 +847,6 @@ namespace Jacaranda.Migrations
                     b.HasOne("Jacaranda.Domain.Model.City", "City")
                         .WithMany("Users")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_user_city_city_id");
 
                     b.Navigation("City");
@@ -885,6 +893,8 @@ namespace Jacaranda.Migrations
 
             modelBuilder.Entity("Jacaranda.Domain.Model.User", b =>
                 {
+                    b.Navigation("MailVerifications");
+
                     b.Navigation("Orders");
 
                     b.Navigation("PasswordResets");
