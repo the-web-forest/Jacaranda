@@ -18,6 +18,10 @@ using Jacaranda.UseCase.User;
 using Jacaranda.UseCase.User.Register;
 using Jacaranda.UseCase.Mail.ValidateEmail;
 using Jacaranda.UseCase.Mail.SendVerificationEmail;
+using Jacaranda.UseCase.Mail.CheckEmailUseCase;
+using Jacaranda.UseCase.Mail.UserPasswordResetUseCase;
+using Jacaranda.UseCase.User.PasswordChange;
+using Jacaranda.UseCase.User.GetUserInfo;
 
 namespace Jacaranda.Configuration
 {
@@ -33,6 +37,8 @@ namespace Jacaranda.Configuration
             builder.Services.AddScoped<IUseCase<ListUsersUseCaseInput, ListUsersUseCaseOutput>, ListUsersUseCase>();
             builder.Services.AddScoped<IUseCase<UserDetailUseCaseInput, UserDetailUseCaseOutput>, UserDetailUseCase>();
             builder.Services.AddScoped<IUseCase<UserRegisterUseCaseInput, UserRegisterUseCaseOutput>, UserRegisterUseCase>();
+            builder.Services.AddScoped<IUseCase<UserPasswordChangeUseCaseInput, UserPasswordChangeUseCaseOutput>, UserPasswordChangeUseCase>();
+            builder.Services.AddScoped<IUseCase<GetUserInfoUseCaseInput, GetUserInfoUseCaseOutput>, GetUserInfoUseCase>();
             #endregion
 
             #region Tree
@@ -54,6 +60,8 @@ namespace Jacaranda.Configuration
             #region Email
             builder.Services.AddScoped<IUseCase<ValidateEmailUseCaseInput, ValidateEmailUseCaseOutput>, ValidateEmailUseCase>();
             builder.Services.AddScoped<IUseCase<SendVerificationEmailUseCaseInput, SendVerificationEmailUseCaseOutput>, SendVerificationEmailUseCase>();
+            builder.Services.AddScoped<IUseCase<CheckEmailUseCaseInput, CheckEmailUseCaseOutput>, CheckEmailUseCase>();
+            builder.Services.AddScoped<IUseCase<UserPasswordResetUseCaseInput, UserPasswordResetUseCaseOutput>, UserPasswordResetUseCase>();
             #endregion
         }
     }

@@ -17,6 +17,7 @@ namespace Jacaranda.Configuration
             builder.Services.AddScoped<IPartnerRepository, PartnerRepository>();
             builder.Services.AddScoped<IBiomeRepository, BiomeRepository>();
             builder.Services.AddScoped<IMailVerificationRepository, MailVerificationRepository>();
+            builder.Services.AddScoped<IPasswordResetRepository, PasswordResetRepository>();
         }
     }
 }

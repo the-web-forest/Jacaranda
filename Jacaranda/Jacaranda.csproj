@@ -80,6 +80,11 @@
     <None Remove="Domain\Exceptions\Mail\" />
     <None Remove="Controllers\Mail\Inputs\" />
     <None Remove="UseCase\Mail\SendVerificationEmail\" />
+    <None Remove="UseCase\Mail\CheckEmailUseCase\" />
+    <None Remove="UseCase\Mail\UserPasswordResetUseCase\" />
+    <None Remove="UseCase\User\PasswordChange\" />
+    <None Remove="Controllers\User\DTOS\" />
+    <None Remove="UseCase\User\GetUserInfo\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
@@ -103,6 +108,11 @@
     <Folder Include="Domain\Exceptions\Mail\" />
     <Folder Include="Controllers\Mail\Inputs\" />
     <Folder Include="UseCase\Mail\SendVerificationEmail\" />
+    <Folder Include="UseCase\Mail\CheckEmailUseCase\" />
+    <Folder Include="UseCase\Mail\UserPasswordResetUseCase\" />
+    <Folder Include="UseCase\User\PasswordChange\" />
+    <Folder Include="Controllers\User\DTOS\" />
+    <Folder Include="UseCase\User\GetUserInfo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />

@@ -24,6 +24,9 @@ namespace Jacaranda.Context
                     .IsRequired()
                     .HasMaxLength(255);
 
+                entity.Property(e => e.ActivatedAt)
+                    .HasDefaultValue(null);
+
                 entity.Property(e => e.CreatedAt)
                     .IsRequired();
 
