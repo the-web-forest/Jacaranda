@@ -6,6 +6,7 @@ using Jacaranda.UseCase;
 using Jacaranda.UseCase.ListUsers;
 using Jacaranda.UseCase.User;
 using Jacaranda.UseCase.User.GetUserInfo;
+using Jacaranda.UseCase.User.Login;
 using Jacaranda.UseCase.User.PasswordChange;
 using Jacaranda.UseCase.User.Register;
 using Microsoft.AspNetCore.Authorization;
@@ -17,6 +18,7 @@ namespace Jacaranda.Controllers.User
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
+        private readonly IUseCase<UserLoginUseCaseInput, UserLoginUseCaseOutput> _userLoginUseCase;
         private readonly IUseCase<UserRegisterUseCaseInput, UserRegisterUseCaseOutput> _registerUseCase;
         private readonly IUseCase<ListUsersUseCaseInput, ListUsersUseCaseOutput> _listUsersUseCase;
         private readonly IUseCase<UserDetailUseCaseInput, UserDetailUseCaseOutput> _userDetailUseCase;
@@ -28,8 +30,8 @@ namespace Jacaranda.Controllers.User
             IUseCase<ListUsersUseCaseInput, ListUsersUseCaseOutput> listUsersUseCase,
             IUseCase<UserDetailUseCaseInput, UserDetailUseCaseOutput> userDetailUseCase,
             IUseCase<UserPasswordChangeUseCaseInput, UserPasswordChangeUseCaseOutput> userPasswordChangeUseCase,
-            IUseCase<GetUserInfoUseCaseInput, GetUserInfoUseCaseOutput> getUserInfoUseCase
-
+            IUseCase<GetUserInfoUseCaseInput, GetUserInfoUseCaseOutput> getUserInfoUseCase,
+            IUseCase<UserLoginUseCaseInput, UserLoginUseCaseOutput> userLoginUseCase
         )
         {
             _registerUseCase = registerUseCase;
@@ -37,6 +39,7 @@ namespace Jacaranda.Controllers.User
             _userDetailUseCase = userDetailUseCase;
             _userPasswordChangeUseCase = userPasswordChangeUseCase;
             _getUserInfoUseCase = getUserInfoUseCase;
+            _userLoginUseCase = userLoginUseCase;
         }
 
         [HttpPost]
@@ -154,6 +157,30 @@ namespace Jacaranda.Controllers.User
                     UserId = Convert.ToInt32(UserId)
                 };
                 var Data = await _getUserInfoUseCase.Run(UseCaseInput);
+                return new ObjectResult(Data);
+            }
+            catch (BaseException e)
+            {
+                return new BadRequestObjectResult(e.Data);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<ObjectResult> Login([FromBody] UserLoginInput userInput)
+        {
+            try
+            {
+                var Data = await _userLoginUseCase.Run(new UserLoginUseCaseInput
+                {
+                    Email = userInput.Email,
+                    Password = userInput.Password
+                });
+
                 return new ObjectResult(Data);
             }
             catch (BaseException e)

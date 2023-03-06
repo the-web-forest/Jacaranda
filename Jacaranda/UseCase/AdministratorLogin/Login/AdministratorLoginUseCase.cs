@@ -45,7 +45,7 @@ namespace Jacaranda.UseCase.AdministratorLogin
         {
             return new AdministratorLoginUseCaseOutput
             {
-                AccessToken = _authService.GenerateToken(Administrator, Roles.Admin),
+                AccessToken = _authService.GenerateToken(Administrator),
                 User = new OutputUser
                 {
                     Id = Administrator.Id,

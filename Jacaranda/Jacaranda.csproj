@@ -85,6 +85,7 @@
     <None Remove="UseCase\User\PasswordChange\" />
     <None Remove="Controllers\User\DTOS\" />
     <None Remove="UseCase\User\GetUserInfo\" />
+    <None Remove="UseCase\User\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
@@ -113,6 +114,7 @@
     <Folder Include="UseCase\User\PasswordChange\" />
     <Folder Include="Controllers\User\DTOS\" />
     <Folder Include="UseCase\User\GetUserInfo\" />
+    <Folder Include="UseCase\User\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />
