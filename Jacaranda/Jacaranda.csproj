@@ -86,6 +86,15 @@
     <None Remove="Controllers\User\DTOS\" />
     <None Remove="UseCase\User\GetUserInfo\" />
     <None Remove="UseCase\User\Login\" />
+    <None Remove="Controllers\Configuration\" />
+    <None Remove="UseCase\Configuration\" />
+    <None Remove="UseCase\Configuration\GetPublicConfigurationUseCase\" />
+    <None Remove="Domain\Exceptions\Configuration\" />
+    <None Remove="Controllers\States\" />
+    <None Remove="UseCase\States\" />
+    <None Remove="UseCase\States\GetStates\" />
+    <None Remove="UseCase\States\GetCitiesByState\" />
+    <None Remove="Domain\Exceptions\State\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
@@ -115,6 +124,15 @@
     <Folder Include="Controllers\User\DTOS\" />
     <Folder Include="UseCase\User\GetUserInfo\" />
     <Folder Include="UseCase\User\Login\" />
+    <Folder Include="Controllers\Configuration\" />
+    <Folder Include="UseCase\Configuration\" />
+    <Folder Include="UseCase\Configuration\GetPublicConfigurationUseCase\" />
+    <Folder Include="Domain\Exceptions\Configuration\" />
+    <Folder Include="Controllers\States\" />
+    <Folder Include="UseCase\States\" />
+    <Folder Include="UseCase\States\GetStates\" />
+    <Folder Include="UseCase\States\GetCitiesByState\" />
+    <Folder Include="Domain\Exceptions\State\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />

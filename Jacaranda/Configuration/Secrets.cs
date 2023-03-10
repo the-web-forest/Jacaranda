@@ -45,6 +45,8 @@ namespace Jacaranda.Configuration
                 var EmailUrlsPasswordReset = client.GetSecret("Trees-Email-Urls-PasswordReset").Value.Value;
                 var EmailUrlsMyForest = client.GetSecret("Trees-Email-Urls-My-Forest").Value.Value;
 
+                var PortalConfiguration = client.GetSecret("Trees-Portal-Configuration").Value.Value;
+
                 builder.Configuration["Database:ConnectionString"] = DatabaseConnectionString;
 
                 builder.Configuration["Storage:ConnectionString"] = StorageConnectionString;
@@ -63,6 +65,8 @@ namespace Jacaranda.Configuration
                 builder.Configuration["Email:Urls:MyForest"] = EmailUrlsMyForest;
 
                 builder.Configuration["Jwt:Key"] = JwtKey;
+
+                builder.Configuration["Portal:Configuration"] = PortalConfiguration;
             }
         }
 

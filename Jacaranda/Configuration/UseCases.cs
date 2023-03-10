@@ -23,6 +23,9 @@ using Jacaranda.UseCase.Mail.UserPasswordResetUseCase;
 using Jacaranda.UseCase.User.PasswordChange;
 using Jacaranda.UseCase.User.GetUserInfo;
 using Jacaranda.UseCase.User.Login;
+using Jacaranda.UseCase.Configuration.GetPublicConfigurationUseCase;
+using Jacaranda.UseCase.States.GetStates;
+using Jacaranda.UseCase.States.GetCitiesByState;
 
 namespace Jacaranda.Configuration
 {
@@ -64,6 +67,15 @@ namespace Jacaranda.Configuration
             builder.Services.AddScoped<IUseCase<SendVerificationEmailUseCaseInput, SendVerificationEmailUseCaseOutput>, SendVerificationEmailUseCase>();
             builder.Services.AddScoped<IUseCase<CheckEmailUseCaseInput, CheckEmailUseCaseOutput>, CheckEmailUseCase>();
             builder.Services.AddScoped<IUseCase<UserPasswordResetUseCaseInput, UserPasswordResetUseCaseOutput>, UserPasswordResetUseCase>();
+            #endregion
+
+            #region Configuration
+            builder.Services.AddScoped<IUseCase<GetPublicConfigurationUseCaseInput, GetPublicConfigurationUseCaseOutput>, GetPublicConfigurationUseCase>();
+            #endregion
+
+            #region State
+            builder.Services.AddScoped<IUseCase<GetStatesUseCaseInput, GetStatesUseCaseOutput>, GetStatesUseCase>();
+            builder.Services.AddScoped<IUseCase<GetCitiesByStateUseCaseInput, GetCitiesByStateUseCaseOutput>, GetCitiesByStateUseCase>();
             #endregion
         }
     }
